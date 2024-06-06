@@ -11,33 +11,33 @@ typedef struct passager
     int nombre_reservation ;
 }passager;
 
-void ajouter_passager(passager *passagers , int **nombre_passagers)
+void ajouter_passager(passager *passagers , int **nbr_passagers)
 {
         printf("veuiller entrer votre NOM : ");
-        scanf("%s" , passagers[ ** nombre_passagers].NOM);
+        scanf("%s" , passagers[ ** nbr_passagers].NOM);
 
         printf("veuiller entrer votre PRE_NOM : ");
-        scanf("%s" , passagers[ ** nombre_passagers].PRE_NOM);
+        scanf("%s" , passagers[ ** nbr_passagers].PRE_NOM);
 
         printf("veuiller entrer votre addresse : ");
-        scanf("%s" , passagers[ ** nombre_passagers].addresse);
+        scanf("%s" , passagers[ ** nbr_passagers].addresse);
 
         printf("veuiller entrer votre numero de telephone : ");
-        scanf("%s" , passagers[ ** nombre_passagers].telephone);
+        scanf("%s" , passagers[ ** nbr_passagers].telephone);
 
         printf("veuiller entrer votre email : ");
-        scanf("%s" , passagers[ ** nombre_passagers].email);
+        scanf("%s" , passagers[ ** nbr_passagers].email);
 
-        passagers [ **nombre_passagers].nombre_reservation = 0;
-        (*nombre_passagers) ++
+        passagers [ **nbr_passagers].nombre_reservation = 0;
+        (*nbr_passagers) ++;
 
-};
+}
 
 void afficher_tous_les_passagers(passager *passagers , int nb_passagers)
 {
     for (int i = 0; i < nb_passagers; i++)
     {
-        afficher_passager(passagers[i]);
+        ajouter_passager(passagers[i]);
     }
     
 }

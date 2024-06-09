@@ -5,12 +5,42 @@ typedef struct passager
 {
     char NOM[50];
     char PRE_NOM[50];
-    char addresse[100];
+    //char addresse[100];
     char telephone[20];
     char email[50];
-    int nombre_reservation ;
+    int nombre_reservation;
+    struct reservation* reservations[100];
+    
 }passager;
 
+typedef struct Reservation
+
+{
+    char datevoyage[50];
+    char numerobus[20];
+    char place[20];
+}Reservation;
+
+void ajouter_passager(passager *passagers , int *nbpassagers)
+{
+    //allocation d'une memoire pour nouveau passager
+    passager * nouveaupassager = malloc(sizeof(passager));
+
+    //saisie des information du passagers 
+    printf("")
+}
+
+int main()
+{
+    printf("");
+    return 0;
+
+}
+
+
+
+
+/*
 void ajouter_passager(passager *passagers , int **nbr_passagers)
 {
         printf("veuiller entrer votre NOM : ");
@@ -37,7 +67,7 @@ void afficher_tous_les_passagers(passager *passagers , int nb_passagers)
 {
     for (int i = 0; i < nb_passagers; i++)
     {
-        ajouter_passager(passagers[i]);
+        ajouter_passager(passager[i]);
     }
     
 }
@@ -65,7 +95,7 @@ int main ()
         switch (choix)
         {
         case 1:
-            ajouter_passager(passagers , &nb_passagers);
+            ajouter_passager(passagers , int **nb_passagers);
             break;
         case 2:
         int id_passager ;
@@ -74,7 +104,7 @@ int main ()
 
             if (id_passager >= 0 && id_passager < nb_passagers)
             {
-                afficher_passager(passagers[id_passager]);
+                ajouter_passager(passagers[id_passager]);
             }else{
                 printf("ID du passager invalide .\n ");
             }  
@@ -91,6 +121,10 @@ int main ()
         }
      } while (choix !=4);
        
+
+
     return 0;
     
+
 }
+*/

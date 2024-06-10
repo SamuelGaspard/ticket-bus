@@ -39,7 +39,7 @@ void ajouter_passager(passager *passagers , int *nbpassagers)
     printf("Entrer le nombre de(s) passager  : ");
     scanf("%d", nouveaupassager ->nombre_reservation);
 
-    nouveaupassager ->nbpassagers = 0;
+    nouveaupassager->nbpassagers = 0;
     passagers[*nbpassagers] = *nouveaupassager;
     *nbpassagers += 1;
 }
@@ -59,13 +59,15 @@ void afficherpassager(passager *passager)
         printf("Historique de reservation : \n");
         for (int i = 0; i < passager ->nombre_reservation; i++)
         {
-            struct Reservation* reservation = passager ->reservations[i];
-            printf(" - Date de voyage : %s \n ", reservation ->datevoyage);
-            printf(" - numero bus : %s \n ", reservation ->numerobus);
+            struct Reservation* reservation = (struct Reservation*) passager->reservations[i];
+            struct Reservation** reservation;
+            printf(" - Date de voyage : %s \n ", reservation->datevoyage);
+            printf(" - numero bus : %s \n ", reservation->numerobus);
             printf(" - place : %s \n ", reservation->place);
             
         }
-        else{
+        else
+        {
             printf("ce passager n'a aucune reservation . \n");
         }
         
@@ -98,7 +100,8 @@ void ajouterreservation(passager*passagers , int nbpassagers)
     scanf("%s", nouvelleReservation ->place);
 
     //ajouter la nouvelle reservation dans l'historique du passager 
-    passager ->reservations[passager ->nombre_reservation] = nouvelleReservation;
+    passager->reservations[passager->nombre_reservation] = (struct Reservation*)nouvelleReservation;
+    struct Reservation* nouvelleReservation; 
     passager ->nombre_reservation += 1;
 
     printf("reservation ajouter avec succes ! \n");

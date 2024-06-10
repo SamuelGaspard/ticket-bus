@@ -3,9 +3,10 @@
 
 typedef struct passager
 {
+    //declaration des variables pour les information du passagers
+
     char NOM[50];
     char PRE_NOM[50];
-    //char addresse[100];
     char telephone[20];
     char email[50];
     int nombre_reservation;

@@ -23,29 +23,31 @@ typedef struct Reservation
     char place[20];
 }Reservation;
 
-void ajouter_passager(passager *passagers , int *nbpassagers)
+//ajouter un passager
+void ajouter_passager(passager *passagers, int *nbpassagers)
 {
     //allocation d'une memoire pour nouveau passager
-    passager * nouveaupassager = malloc(sizeof(passager));
+    passager *nouveaupassager = malloc(sizeof(passager));
 
     //saisie des information du passagers 
     printf("Entrer le nom du passager  : ");
-    scanf("%s", nouveaupassager ->NOM);
+    scanf("%s", nouveaupassager->NOM);
     printf("Entrer le pre-nom du passager  : ");
-    scanf("%s", nouveaupassager ->PRE_NOM);
+    scanf("%s", nouveaupassager->PRE_NOM);
     printf("Entrer le numero du passager  : ");
-    scanf("%s", nouveaupassager ->telephone);
+    scanf("%s", nouveaupassager->telephone);
     printf("Entrer email du passager  : ");
-    scanf("%s", nouveaupassager ->email);
+    scanf("%s", nouveaupassager->email);
     printf("Entrer le nombre de(s) passager  : ");
-    scanf("%d", nouveaupassager ->nombre_reservation);
+    scanf("%d", &nouveaupassager->nombre_reservation);
 
-    nouveaupassager ->nbpassagers = 0;
+    nouveaupassager->nbpassagers = 0;
     passagers[*nbpassagers] = *nouveaupassager;
     *nbpassagers += 1;
 }
 
 //la fonction pour afficher les informatio du passagers 
+
 /*
 
 void afficherpassager(passager *passager)
@@ -76,6 +78,7 @@ void afficherpassager(passager *passager)
     }
      
 }
+
 
 //ajouter une reservation a un passager 
 
@@ -110,52 +113,75 @@ void ajouterreservation(passager*passagers , int nbpassagers)
 
     
 }
-
 */
-int main()
-{
-    //table pour stocker les passagers
-    //char passagers;
-    //int nbpassagers;
-     void ajouter_passager(passager *passagers , int *nbpassagers);
-     void afficherpassager(passager *passager);
-      void ajouterreservation(passager*passagers , int nbpassagers);
-     passager passagers[100];
-
-    int choix;
-
-    do
+    int main()
     {
-      switch (choix)
+        passager passagers[100];
+        int nbpassagers = 0;
+        int choix;
 
-      {
-            case 0:
-            printf("1. Ajouter un passager : ");
-            break;
-            case 1:
-            printf("2. afficher un passager : ");
-            break;
-            case 2:
-            printf("3. ajouter resrevation du passager : ");
-            break;
-            case 3:
-            printf("4. Ajouter un passager : ");
-            break;
-                
-            default:
-            printf("bonjour");
-      } 
+        do
+        {
+            switch (choix)
+            {
+                case 0:
+                    printf("1. Ajouter un passager : ");
+                    ajouter_passager(passagers, &nbpassagers); // Call the function to add a passenger
+                    break;
+                case 1:
+                    printf("2. afficher un passager : ");
+                    // Call the function to display a passenger
+                    break;
+                case 2:
+                    printf("3. ajouter resrevation du passager: ");
+                    // Call the function to add a reservation for a passenger
+                    break;
+                case 3:
+                    printf("4. Ajouter un passager: ");
+                    // Call the function to display all passengers
+                    break;
+                default:
+                    printf("");
+            } 
 
-    } while (choix !=4);
+        } while (choix != 4);
+        
+        return 0;
+    }
+
     
-    return 0;
-
-}
-
-
-
-
 /*
+{
+        int choix;
+
+        do
+        {
+            switch (choix)
+            {
+                case 0:
+                    printf("1. Ajouter un passager : ");
+                    ajouter_passager(passagers, &nbpassagers); // Call the function to add a passenger
+                    break;
+                case 1:
+                    printf("2. afficher un passager : ");
+                    // Call the function to display a passenger
+                    break;
+                case 2:
+                    printf("3. ajouter resrevation du passager: ");
+                    // Call the function to add a reservation for a passenger
+                    break;
+                case 3:
+                    printf("4. Ajouter un passager: ");
+                    // Call the function to display all passengers
+                    break;
+                default:
+                    printf("");
+            } 
+
+        } while (choix != 4);
+        
+        return 0;
+    }
 void ajouter_passager(passager *passagers , int **nbr_passagers)
 {
         printf("veuiller entrer votre NOM : ");

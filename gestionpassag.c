@@ -10,6 +10,7 @@ typedef struct passager
     char telephone[20];
     char email[50];
     int nombre_reservation;
+    int nbpassagers;
     struct reservation* reservations[100];
     
 }passager;
@@ -39,12 +40,13 @@ void ajouter_passager(passager *passagers , int *nbpassagers)
     printf("Entrer le nombre de(s) passager  : ");
     scanf("%d", nouveaupassager ->nombre_reservation);
 
-    nouveaupassager->nbpassagers = 0;
+    nouveaupassager ->nbpassagers = 0;
     passagers[*nbpassagers] = *nouveaupassager;
     *nbpassagers += 1;
 }
 
 //la fonction pour afficher les informatio du passagers 
+/*
 
 void afficherpassager(passager *passager)
 {
@@ -61,9 +63,9 @@ void afficherpassager(passager *passager)
         {
             struct Reservation* reservation = (struct Reservation*) passager->reservations[i];
             struct Reservation** reservation;
-            printf(" - Date de voyage : %s \n ", reservation->datevoyage);
-            printf(" - numero bus : %s \n ", reservation->numerobus);
-            printf(" - place : %s \n ", reservation->place);
+            printf(" - Date de voyage : %s \n ", (*reservation ->datevoyage));
+            printf(" - numero bus : %s \n ", (*reservation ->numerobus));
+            printf(" - place : %s \n ", (*reservation ->place));
             
         }
         else
@@ -109,15 +111,43 @@ void ajouterreservation(passager*passagers , int nbpassagers)
     
 }
 
+*/
 int main()
 {
     //table pour stocker les passagers
-    void ajouter_passager();
-    void afficherpassager();
-    void ajouterreservation();
-    
+    //char passagers;
+    //int nbpassagers;
+     void ajouter_passager(passager *passagers , int *nbpassagers);
+     void afficherpassager(passager *passager);
+      void ajouterreservation(passager*passagers , int nbpassagers);
+     passager passagers[100];
 
-    passager passagers[100];
+    int choix;
+
+    do
+    {
+      switch (choix)
+
+      {
+            case 0:
+            printf("1. Ajouter un passager : ");
+            break;
+            case 1:
+            printf("2. afficher un passager : ");
+            break;
+            case 2:
+            printf("3. ajouter resrevation du passager : ");
+            break;
+            case 3:
+            printf("4. Ajouter un passager : ");
+            break;
+                
+            default:
+            printf("bonjour");
+      } 
+
+    } while (choix !=4);
+    
     return 0;
 
 }
@@ -206,8 +236,6 @@ int main ()
         }
      } while (choix !=4);
        
-
-
     return 0;
     
 

@@ -16,6 +16,7 @@ int main()
     printf("entrer votre choix : ");
     scanf("%d", &choix_du_bus);
     
+    
     do
     {
         switch (choix_du_bus)

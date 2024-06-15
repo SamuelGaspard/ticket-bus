@@ -1,0 +1,2 @@
+int attribuersiege();
+int main();

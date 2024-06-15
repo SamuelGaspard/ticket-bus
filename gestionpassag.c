@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define MAX_RESERVATIONS 10
 #define MAX_PASSAGERS 100
@@ -13,7 +14,7 @@ typedef struct {
 typedef struct {
 
     char nom[50];
-    char contact[50];
+    char adresse[50];
     char PRE_NOM[50];
     char telephone[20];
     char email[50];
@@ -28,26 +29,36 @@ void ajouter_passager(Passager passagers[], int *nbpassagers) {
         return;
     }
     printf("\n\n\n\n");
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
+
     printf("\t\t Entrer le nom du passager: ");
-    scanf("%s", passagers[*nbpassagers].nom);
-    printf("\n");
+    fgets(passagers[*nbpassagers].nom, 50, stdin);
+    passagers[*nbpassagers].nom[strcspn(passagers[*nbpassagers].nom, "\n")] = 0;
+
     printf("\t\t Entrer le pre-nom du passager: ");
-    scanf("%s", passagers[*nbpassagers].PRE_NOM);
-    printf("\n");
+    fgets(passagers[*nbpassagers].PRE_NOM, 50, stdin);
+    passagers[*nbpassagers].PRE_NOM[strcspn(passagers[*nbpassagers].PRE_NOM, "\n")] = 0;
+
     printf("\t\t Entrer le telephone du passager: ");
-    scanf("%s", passagers[*nbpassagers].telephone);
-    printf("\n");
+    fgets(passagers[*nbpassagers].telephone, 20, stdin);
+    passagers[*nbpassagers].telephone[strcspn(passagers[*nbpassagers].telephone, "\n")] = 0;
+
     printf("\t\t Entrer l'email du passager: ");
-    scanf("%s", passagers[*nbpassagers].email);
-    printf("\n");
-    printf("\t\t Entrer le contact du passager: ");
-    scanf("%s", passagers[*nbpassagers].contact);
-    printf("\n");
+    fgets(passagers[*nbpassagers].email, 50, stdin);
+    passagers[*nbpassagers].email[strcspn(passagers[*nbpassagers].email, "\n")] = 0;
 
-    passagers[*nbpassagers].nombre_reservation = 0;
+    printf("\t\t Entrer l'adresse du passager: ");
+    fgets(passagers[*nbpassagers].adresse, 50, stdin);
+    passagers[*nbpassagers].adresse[strcspn(passagers[*nbpassagers].adresse, "\n")] = 0;
+
+    printf("\t\t Entrer le nombre de reservations pour le passager: ");
+    scanf("%d", &passagers[*nbpassagers].nombre_reservation);
+    while (getchar() != '\n');
+
     (*nbpassagers)++;
-}
 
+}
 void ajouter_reservation(Passager passagers[], int nbpassagers) {
     int id;
     printf("Entrer l'ID du passager: ");
@@ -73,14 +84,14 @@ void ajouter_reservation(Passager passagers[], int nbpassagers) {
 
 void afficher_passager(Passager passagers[], int nbpassagers) {
     int id;
-    printf("Entrer l'ID du passager à afficher: ");
+    printf("Entrer l'ID du passager a afficher: ");
     scanf("%d", &id);
     if (id < 1 || id > nbpassagers) {
         printf("Passager invalide.\n");
         return;
     }
     Passager passager = passagers[id - 1];
-    printf("Nom: %s, Contact: %s\n", passager.nom, passager.contact);
+    printf("Nom: %s, Contact: %s\n", passager.nom, passager.adresse);
     for (int i = 0; i < passager.nombre_reservation; i++) {
         printf("Réservation %d: %s, Bus %s, Place %s\n", i + 1, passager.reservations[i].datevoyage, passager.reservations[i].numerobus, passager.reservations[i].place);
     }

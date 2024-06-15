@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1717851242 source:c:\users\jocelyne awa\desktop\attribution des sieges\main.c
+	<stdio.h>
+	<stdlib.h>
+	"siege.h"
+
+1717851320 c:\users\jocelyne awa\desktop\attribution des sieges\siege.h
+
+1718098212 source:c:\users\jocelyne awa\desktop\attribution des sieges\siege.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+

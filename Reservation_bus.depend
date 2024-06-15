@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1718485064 source:c:\users\atia stella\desktop\reservation_bus\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1718483009 source:c:\users\atia stella\desktop\reservation_bus\attribution_siege.c
+
+1718481187 source:c:\users\atia stella\desktop\reservation_bus\gestion_passager.c
+

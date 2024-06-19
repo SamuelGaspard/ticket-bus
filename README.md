@@ -21,3 +21,9 @@ Le système gère également l'attribution des sièges pour éviter les doubles 
 Pour installer et exécuter ce projet localement, suivez ces étapes :
 1. le projet s'execute en mode console.
 2. Clonez le dépôt sur votre machine locale.
+   ## les participants
+   1. BIBONBA mervice
+   2. bunana samuel
+   3. atia binti
+   4. sonia ngoy
+   
